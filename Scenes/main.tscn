@@ -1,0 +1,390 @@
+[gd_scene format=3 uid="uid://qeewled1ius4"]
+
+[ext_resource type="Script" uid="uid://cvdkopr6e6op4" path="res://Scripts/main.gd" id="1_8gbba"]
+[ext_resource type="Texture2D" uid="uid://ciof6ntxvllfa" path="res://Assets/Daphne Pink Dress.png" id="2_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://dph8fxey2itl1" path="res://Assets/cooking_egg.png" id="3_21xkr"]
+[ext_resource type="Texture2D" uid="uid://cjynykwngds8r" path="res://Assets/GlitchCoin.png" id="3_kry3j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+
+[sub_resource type="Animation" id="Animation_lx3vj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CookingSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6bp64"]
+resource_name = "Cooking"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CookingSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [13, 14, 15, 16, 17, 18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_my4ki"]
+resource_name = "Mine"
+length = 1.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CookingSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynmfv"]
+_data = {
+&"RESET": SubResource("Animation_lx3vj"),
+&"cook": SubResource("Animation_6bp64"),
+&"egg_crack": SubResource("Animation_my4ki")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+bg_color = Color(0.99999994, 0.19847804, 0.7361323, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 0.73333335, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 4
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+bg_color = Color(11.708403, 11.708403, 11.708403, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0.9131701, 0.2872121, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
+bg_color = Color(0, 0, 0, 0.5019608)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.003921569, 0.9098039, 0.28627452, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+bg_color = Color(1.0811334, 0.7509666, 7.612897e-06, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="Shortcut" id="Shortcut_kek77"]
+
+[node name="Main" type="Control" unique_id=1294964494]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8gbba")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=968433748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=2135304121]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=883720947]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=807791824]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CookingSpace" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1881323370]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/CookingSpace" unique_id=917770293]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/CookingSpace/MarginContainer" unique_id=807118112]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ResourcesLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/CookingSpace/MarginContainer/VBoxContainer" unique_id=1621966555]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 28
+text = "Eggs: 6    Cooked Eggs: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/CookingSpace/MarginContainer/VBoxContainer" unique_id=498949690]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+expand_mode = 2
+stretch_mode = 4
+
+[node name="CookingProgressBar" type="ProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/CookingSpace/MarginContainer/VBoxContainer" unique_id=780367745]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="CookButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/CookingSpace/MarginContainer/VBoxContainer" unique_id=2132983086]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
+text = "COOK"
+
+[node name="Upgrades" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=551059364]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Upgrades" unique_id=421843993]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Upgrades/MarginContainer" unique_id=522605984]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Upgrades/MarginContainer/VBoxContainer" unique_id=2108167592]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Upgrades/MarginContainer/VBoxContainer/VBoxContainer" unique_id=918509803]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Money: $10.00"
+
+[node name="Upgrades" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Upgrades/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1133245971]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Upgrades"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpeedUpgradeButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Upgrades/MarginContainer/VBoxContainer" unique_id=1219558680]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
+text = "Cooking Speed
+Price: $2
+Current Speed: 1"
+
+[node name="CoffeeStationButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Upgrades/MarginContainer/VBoxContainer" unique_id=1259961366]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
+text = "Coffee Station
+Price: $25"
+
+[node name="CookingSprite" type="Sprite2D" parent="." unique_id=552525869]
+texture_filter = 1
+position = Vector2(345, 280)
+scale = Vector2(3.739583, 3.739583)
+texture = ExtResource("3_21xkr")
+hframes = 21
+
+[node name="CookingTimer" type="Timer" parent="." unique_id=182305698]
+one_shot = true
+
+[node name="CookingAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1800066809]
+libraries/ = SubResource("AnimationLibrary_ynmfv")
+
+[node name="PlayerInfoBox" type="Panel" parent="." unique_id=1467498372]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 384.0
+offset_bottom = 144.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="AvatarFrame" type="Panel" parent="PlayerInfoBox" unique_id=1278152303]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -45.0
+offset_right = 105.0
+offset_bottom = 45.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
+
+[node name="Avatar" type="TextureRect" parent="PlayerInfoBox/AvatarFrame" unique_id=282632320]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -44.055557
+offset_right = 30.5
+offset_bottom = 44.055557
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jjvhh")
+expand_mode = 5
+
+[node name="Nickname" type="Label" parent="PlayerInfoBox" unique_id=2039981826]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 21.0
+offset_right = 333.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 28
+text = "Daphne"
+
+[node name="ExperienceProgress" type="ProgressBar" parent="PlayerInfoBox" unique_id=2076193535]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = -55.0
+offset_right = -27.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_7mycd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_272bh")
+value = 20.0
+
+[node name="CoinBox" type="Panel" parent="." unique_id=743343923]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -288.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 84.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
+
+[node name="Coin" type="TextureRect" parent="CoinBox" unique_id=323977528]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -19.428572
+offset_right = 46.0
+offset_bottom = 19.428574
+grow_vertical = 2
+texture = ExtResource("3_kry3j")
+expand_mode = 5
+
+[node name="CoinsText" type="Label" parent="CoinBox" unique_id=1015937284]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 11.0
+offset_right = 173.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 28
+text = "Coins:"
+vertical_alignment = 1
+
+[node name="CoinsValueText" type="Label" parent="CoinBox" unique_id=1047839652]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 140.0
+offset_top = 12.0
+offset_right = 258.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+vertical_alignment = 1
+
+[node name="GrantCoinsButton" type="Button" parent="." unique_id=466591009]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -36.25
+offset_right = 173.5
+offset_bottom = 83.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+shortcut = SubResource("Shortcut_kek77")
+text = "Grant Coins
+"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/CookingSpace/MarginContainer/VBoxContainer/CookButton" to="." method="_on_cook_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Upgrades/MarginContainer/VBoxContainer/SpeedUpgradeButton" to="." method="_on_speed_upgrade_button_pressed"]
+[connection signal="timeout" from="CookingTimer" to="." method="_on_cooking_timer_timeout"]
+[connection signal="animation_finished" from="CookingAnimationPlayer" to="." method="_on_cooking_animation_player_animation_finished"]
