@@ -19,7 +19,7 @@ extends Control
 # RESOURCES
 # These values persist for as long as this scene exists
 
-var money: float = 10.0
+var money: float = 10.00
 var eggs: int = 6
 var cooked_eggs: int = 0
 var coffee: int = 0
@@ -120,6 +120,8 @@ func _on_speed_upgrade_button_pressed() -> void:
 		cooking_animation_player.speed_scale = cooking_speed
 		cooking_speed_cost += 1
 		update_text()
+
+
 
 # UPDATE TEXT FUNCTIONS
 

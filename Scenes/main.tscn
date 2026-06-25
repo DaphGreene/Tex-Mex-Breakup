@@ -197,6 +197,7 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer" unique_id=498949690]
 texture_filter = 1
+custom_minimum_size = Vector2(260, 220)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -205,7 +206,7 @@ stretch_mode = 4
 
 [node name="CookingSprite" type="Sprite2D" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/TextureRect" unique_id=552525869]
 texture_filter = 1
-position = Vector2(-2, 79.00003)
+position = Vector2(130, 110)
 scale = Vector2(3.739583, 3.739583)
 texture = ExtResource("3_21xkr")
 hframes = 21
