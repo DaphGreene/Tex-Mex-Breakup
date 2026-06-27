@@ -12,6 +12,7 @@ extends Control
 @onready var cooking_speed_upgrade_button: Button = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/Upgrades/MarginContainer/VBoxContainer/CookingSpeedUpgradeButton
 @onready var coffee_station_button: Button = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/Upgrades/MarginContainer/VBoxContainer/CoffeeStationButton
 @onready var buy_egg_button: Button = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/EggActionRow/BuyEggButton
+@onready var cook_button: Button = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/EggActionRow/CookButton
 @onready var serve_egg_button: Button = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/EggActionRow/ServeEggButton
 
 
@@ -121,12 +122,28 @@ func _on_speed_upgrade_button_pressed() -> void:
 		cooking_speed_cost += 1
 		update_text()
 
-
+func _on_coffee_station_button_pressed() -> void:
+	if money >= coffee_station_cost:
+		money-= coffee_station_cost
+		coffee_station_unlocked = true
+		update_text()
 
 # UPDATE TEXT FUNCTIONS
 
-func update_text():
+func update_text() -> void:
 	money_label.text = "Money: $%.2f" % money
-	eggs_label.text = "Eggs: " + str(eggs) + "  Cooked Eggs:" + str(cooked_eggs)
+	eggs_label.text = "Eggs: " + str(eggs) + "  Cooked Eggs: " + str(cooked_eggs)
 	cooking_speed_upgrade_button.text = "Cooking Speed \nPrice: $" + str(cooking_speed_cost) + "\nCurrent Speed: " + str(cooking_speed)
-	buy_egg_button.text = "BUY 6 EGGS\n$%.2f" % egg_purchase_price
+	buy_egg_button.text = "BUY %d EGGS\n$%.2f" % [egg_purchase_quantity, egg_purchase_price]
+	serve_egg_button.text = "SERVE EGG\n+$%.2f" % cooked_egg_sale_price
+	if coffee_station_unlocked:
+		coffee_station_button.text = "Pour Over\nUnlocked"
+	else:
+		coffee_station_button.text = "Coffee Station\nPrice: %.2f" % coffee_station_cost
+
+	# Disable buttons triggers
+	buy_egg_button.disabled = money < egg_purchase_price
+	cook_button.disabled = is_cooking or eggs < eggs_per_cook
+	serve_egg_button.disabled = cooked_eggs < 1
+	cooking_speed_upgrade_button.disabled = money < cooking_speed_cost
+	coffee_station_button.disabled = money < coffee_station_cost or coffee_station_unlocked

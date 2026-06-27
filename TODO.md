@@ -12,11 +12,11 @@
 ## Current Milestone: Egg Economy
 
 - [x] Display current money
-- [ ] Add a Buy Egg button
-- [ ] Prevent purchases without enough money
-- [ ] Add a Sell Cooked Egg button
-- [ ] Prevent sales without cooked eggs
-- [ ] Format money as dollars and cents
+- [x] Add a Buy Egg button
+- [x] Prevent purchases without enough money
+- [x] Add a Sell Cooked Egg button
+- [x] Prevent sales without cooked eggs
+- [x] Format money as dollars and cents
 - [ ] Balance egg purchase and sale prices
 
 ## Next: Coffee Station
