@@ -21,6 +21,6 @@
 
 ## Next: Coffee Station
 
-- [ ] Unlock coffee station
+- [x] Unlock coffee station
 - [ ] Purchase coffee beans
 - [ ] Brew coffee

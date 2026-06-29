@@ -115,7 +115,7 @@ func _on_serve_egg_button_pressed() -> void:
 # UPGRADE FUNCTIONS
 
 func _on_speed_upgrade_button_pressed() -> void:
-	if money >= cooking_speed_cost: # If i can afford the upgrade
+	if money >= cooking_speed_cost and can_continue_egg_loop_after_spending(cooking_speed_cost): # If i can afford the upgrade
 		money -= cooking_speed_cost # Subtract speed_cost
 		cooking_speed += 1 # Reward increase the speed
 		cooking_animation_player.speed_scale = cooking_speed
@@ -127,6 +127,21 @@ func _on_coffee_station_button_pressed() -> void:
 		money-= coffee_station_cost
 		coffee_station_unlocked = true
 		update_text()
+		
+# VALIDATION HELPER FUNCTIONS
+
+func can_continue_egg_loop_after_spending(spend_amount: float) -> bool:
+	var money_after_spending: float = money - spend_amount
+	
+	var cookable_batches: int = eggs / eggs_per_cook
+	var potential_cooked_eggs: int = cooked_eggs + cookable_batches * eggs_output
+	
+	if is_cooking:
+		potential_cooked_eggs += eggs_output
+
+	var recovery_value: float = money_after_spending + potential_cooked_eggs * cooked_egg_sale_price
+
+	return recovery_value >= egg_purchase_price
 
 # UPDATE TEXT FUNCTIONS
 
@@ -139,11 +154,19 @@ func update_text() -> void:
 	if coffee_station_unlocked:
 		coffee_station_button.text = "Pour Over\nUnlocked"
 	else:
-		coffee_station_button.text = "Coffee Station\nPrice: %.2f" % coffee_station_cost
+		coffee_station_button.text = "Coffee Station\nPrice: $%.2f" % coffee_station_cost
 
 	# Disable buttons triggers
 	buy_egg_button.disabled = money < egg_purchase_price
 	cook_button.disabled = is_cooking or eggs < eggs_per_cook
 	serve_egg_button.disabled = cooked_eggs < 1
-	cooking_speed_upgrade_button.disabled = money < cooking_speed_cost
-	coffee_station_button.disabled = money < coffee_station_cost or coffee_station_unlocked
+	
+	cooking_speed_upgrade_button.disabled = (
+		money < cooking_speed_cost
+		or not can_continue_egg_loop_after_spending(cooking_speed_cost)
+	)
+	coffee_station_button.disabled = (
+		money < coffee_station_cost
+		or coffee_station_unlocked
+		or not can_continue_egg_loop_after_spending(coffee_station_cost)
+	)
