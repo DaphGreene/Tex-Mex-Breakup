@@ -4,7 +4,7 @@ extends Control
 # NODE REFERENCES
 # These locate scene nodes after the scene is ready
 
-@onready var money_label: Label = $MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/MoneyLabel
+@onready var money_label: Label = $MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/MoneyBox/MarginContainer/HBoxContainer/MoneyLabel
 @onready var eggs_label: Label = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/EggsLabel
 @onready var cooking_progress_bar: ProgressBar = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/CookingProgressBar
 @onready var cooking_animation_player: AnimationPlayer = $CookingAnimationPlayer
@@ -20,7 +20,7 @@ extends Control
 # RESOURCES
 # These values persist for as long as this scene exists
 
-var money: float = 10.00
+var money: float = 0.0
 var eggs: int = 6
 var cooked_eggs: int = 0
 var coffee: int = 0
@@ -146,7 +146,7 @@ func can_continue_egg_loop_after_spending(spend_amount: float) -> bool:
 # UPDATE TEXT FUNCTIONS
 
 func update_text() -> void:
-	money_label.text = "Money: $%.2f" % money
+	money_label.text = ": $%.2f" % money
 	eggs_label.text = "Eggs: " + str(eggs) + "  Cooked Eggs: " + str(cooked_eggs)
 	cooking_speed_upgrade_button.text = "Cooking Speed \nPrice: $" + str(cooking_speed_cost) + "\nCurrent Speed: " + str(cooking_speed)
 	buy_egg_button.text = "BUY %d EGGS\n$%.2f" % [egg_purchase_quantity, egg_purchase_price]

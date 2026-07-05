@@ -11,7 +11,7 @@ border_width_left = 6
 border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
-border_color = Color(1, 0.73333335, 1, 1)
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -25,7 +25,7 @@ border_width_left = 6
 border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
-border_color = Color(0, 0.9131701, 0.2872121, 1)
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -33,25 +33,30 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
 bg_color = Color(0, 0, 0, 0.5019608)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
-bg_color = Color(0.003921569, 0.9098039, 0.28627452, 1)
+bg_color = Color(3.8119553e-05, 0.9486843, 0.18852836, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
-bg_color = Color(1.0811334, 0.7509666, 7.612897e-06, 1)
+bg_color = Color(0, 0.41816226, 0, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -60,6 +65,7 @@ shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
+bg_color = Color(0.41819945, 0.7582426, 0.9956637, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -88,7 +94,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/TextureRect/CookingSprite:frame")
+tracks/0/path = NodePath("MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/MarginContainer/TextureRect/CookingSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -106,7 +112,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/TextureRect/CookingSprite:frame")
+tracks/0/path = NodePath("MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/MarginContainer/TextureRect/CookingSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -123,7 +129,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/TextureRect/CookingSprite:frame")
+tracks/0/path = NodePath("MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/MarginContainer/TextureRect/CookingSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -179,57 +185,64 @@ theme_override_constants/separation = 20
 
 [node name="MoneyBar" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout" unique_id=486125757]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="PlayerInfoBox" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar" unique_id=1467498372]
+custom_minimum_size = Vector2(340, 80)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="AvatarFrame" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/PlayerInfoBox" unique_id=1278152303]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/PlayerInfoBox" unique_id=445916905]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 38.0
+grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/PlayerInfoBox/MarginContainer" unique_id=873223969]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="AvatarFrame" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/PlayerInfoBox/MarginContainer/HBoxContainer" unique_id=1278152303]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
 
-[node name="Avatar" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/PlayerInfoBox/AvatarFrame" unique_id=282632320]
+[node name="Avatar" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/PlayerInfoBox/MarginContainer/HBoxContainer/AvatarFrame" unique_id=282632320]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.5
-offset_top = -16.0
-offset_right = 10.0
-offset_bottom = 16.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_jjvhh")
-expand_mode = 4
+expand_mode = 3
+stretch_mode = 5
 
-[node name="Nickname" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/PlayerInfoBox" unique_id=2039981826]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 7.0
-offset_right = 149.0
-offset_bottom = 33.0
-theme_override_font_sizes/font_size = 18
+[node name="Nickname" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/PlayerInfoBox/MarginContainer/HBoxContainer" unique_id=2039981826]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 36
 text = "Daphne"
 
-[node name="ExperienceProgress" type="ProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/PlayerInfoBox" unique_id=2076193535]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 167.0
-offset_top = -31.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="ExperienceProgress" type="ProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/PlayerInfoBox/MarginContainer/HBoxContainer" unique_id=2076193535]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
 theme_override_styles/background = SubResource("StyleBoxFlat_7mycd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_272bh")
 value = 20.0
@@ -238,28 +251,42 @@ value = 20.0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CoinBox" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar" unique_id=743343923]
+[node name="MoneyBox" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar" unique_id=743343923]
+custom_minimum_size = Vector2(220, 80)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
 
-[node name="Coin" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/CoinBox" unique_id=323977528]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/MoneyBox" unique_id=613174478]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 12.0
-offset_top = -19.428572
-offset_right = 46.0
-offset_bottom = 19.428574
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/MoneyBox/MarginContainer" unique_id=1697870409]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 8
+
+[node name="Money" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/MoneyBox/MarginContainer/HBoxContainer" unique_id=323977528]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
 texture = ExtResource("3_kry3j")
 expand_mode = 5
 
-[node name="MoneyLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar" unique_id=918509803]
+[node name="MoneyLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/MoneyBox/MarginContainer/HBoxContainer" unique_id=918509803]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Money: $10.00"
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = ": $0.00"
 
 [node name="ContentRow" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout" unique_id=607293574]
 layout_mode = 2
@@ -279,7 +306,9 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer" unique_id=807118112]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 20
+alignment = 1
 
 [node name="EggsLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer" unique_id=1621966555]
 layout_mode = 2
@@ -288,19 +317,23 @@ text = "Eggs: 6    Cooked Eggs: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer" unique_id=498949690]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer" unique_id=201051541]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/MarginContainer" unique_id=498949690]
 texture_filter = 1
-custom_minimum_size = Vector2(260, 220)
+custom_minimum_size = Vector2(320, 240)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 6
 expand_mode = 2
 stretch_mode = 4
 
-[node name="CookingSprite" type="Sprite2D" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/TextureRect" unique_id=552525869]
+[node name="CookingSprite" type="Sprite2D" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/MarginContainer/TextureRect" unique_id=552525869]
 texture_filter = 1
-position = Vector2(130, 110)
-scale = Vector2(3.739583, 3.739583)
+position = Vector2(160, 112)
+scale = Vector2(4, 4)
 texture = ExtResource("3_21xkr")
 hframes = 21
 
