@@ -4,11 +4,20 @@ extends Control
 # NODE REFERENCES
 # These locate scene nodes after the scene is ready
 
+# LABELS
 @onready var money_label: Label = $MarginContainer/PanelContainer/MarginContainer/MainLayout/MoneyBar/MoneyBox/MarginContainer/HBoxContainer/MoneyLabel
 @onready var eggs_label: Label = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/EggsLabel
+
+# PROGRESS BARS
 @onready var cooking_progress_bar: ProgressBar = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/CookingProgressBar
+
+# ANIMATION PLAYERS
 @onready var cooking_animation_player: AnimationPlayer = $CookingAnimationPlayer
+
+# TIMERS
 @onready var cooking_timer: Timer = $CookingTimer
+
+# BUTTONS
 @onready var cooking_speed_upgrade_button: Button = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/Upgrades/MarginContainer/VBoxContainer/CookingSpeedUpgradeButton
 @onready var coffee_station_button: Button = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/Upgrades/MarginContainer/VBoxContainer/CoffeeStationButton
 @onready var buy_egg_button: Button = $MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/EggActionRow/BuyEggButton
