@@ -7,15 +7,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
 bg_color = Color(0.99999994, 0.19847804, 0.7361323, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
 border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
@@ -52,15 +52,15 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
 bg_color = Color(0, 0.41816226, 0, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
 border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
@@ -366,6 +366,79 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 28
 text = "SERVE"
 
+[node name="CookingSpace2" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow" unique_id=127492409]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jjvhh")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2" unique_id=516256502]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer" unique_id=172464797]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="EggsLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer" unique_id=1190082925]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Eggs: 6    Cooked Eggs: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer" unique_id=912151268]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer/MarginContainer" unique_id=1858575577]
+texture_filter = 1
+custom_minimum_size = Vector2(320, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+expand_mode = 2
+stretch_mode = 4
+
+[node name="CookingSprite" type="Sprite2D" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer/MarginContainer/TextureRect" unique_id=1596418752]
+texture_filter = 1
+position = Vector2(160, 112)
+scale = Vector2(4, 4)
+texture = ExtResource("3_21xkr")
+hframes = 21
+
+[node name="CookingProgressBar" type="ProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer" unique_id=583491024]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="EggActionRow" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer" unique_id=1184780132]
+layout_mode = 2
+
+[node name="BuyEggButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer/EggActionRow" unique_id=1170322216]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
+text = "BUY"
+
+[node name="CookButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer/EggActionRow" unique_id=1149861197]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
+text = "COOK"
+
+[node name="ServeEggButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer/EggActionRow" unique_id=489672736]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
+text = "SERVE"
+
 [node name="Upgrades" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow" unique_id=551059364]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -432,6 +505,9 @@ text = "Grant Coins
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/EggActionRow/BuyEggButton" to="." method="_on_buy_egg_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/EggActionRow/CookButton" to="." method="_on_cook_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace/MarginContainer/VBoxContainer/EggActionRow/ServeEggButton" to="." method="_on_serve_egg_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer/EggActionRow/BuyEggButton" to="." method="_on_buy_egg_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer/EggActionRow/CookButton" to="." method="_on_cook_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/CookingSpace2/MarginContainer/VBoxContainer/EggActionRow/ServeEggButton" to="." method="_on_serve_egg_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/Upgrades/MarginContainer/VBoxContainer/CookingSpeedUpgradeButton" to="." method="_on_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/MainLayout/ContentRow/Upgrades/MarginContainer/VBoxContainer/CoffeeStationButton" to="." method="_on_coffee_station_button_pressed"]
 [connection signal="timeout" from="CookingTimer" to="." method="_on_cooking_timer_timeout"]
