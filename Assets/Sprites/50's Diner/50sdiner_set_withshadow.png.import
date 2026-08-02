@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhdypu1jdfdo3"
-path="res://.godot/imported/50sdiner_room_door_tiles2.png-1a8e219424bbfed474e9d718cc49971c.ctex"
+uid="uid://dekrbskeuq4wd"
+path="res://.godot/imported/50sdiner_set_withshadow.png-efe2b3e8177ab2d91b82364de2d8389c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/50's Diner/50sdiner_room_door_tiles2.png"
-dest_files=["res://.godot/imported/50sdiner_room_door_tiles2.png-1a8e219424bbfed474e9d718cc49971c.ctex"]
+source_file="res://Assets/Sprites/50's Diner/50sdiner_set_withshadow.png"
+dest_files=["res://.godot/imported/50sdiner_set_withshadow.png-efe2b3e8177ab2d91b82364de2d8389c.ctex"]
 
 [params]
 

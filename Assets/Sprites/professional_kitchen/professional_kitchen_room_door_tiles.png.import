@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chf3l7f5bfnkj"
-path="res://.godot/imported/neon_font.png-e3508771a48370f86ec8f1fc6a5cf062.ctex"
+uid="uid://bg138cli01tto"
+path="res://.godot/imported/professional_kitchen_room_door_tiles.png-e08f6f26d015c41fca17c8568b177335.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/50's Diner/neon_font.png"
-dest_files=["res://.godot/imported/neon_font.png-e3508771a48370f86ec8f1fc6a5cf062.ctex"]
+source_file="res://Assets/Sprites/professional_kitchen/professional_kitchen_room_door_tiles.png"
+dest_files=["res://.godot/imported/professional_kitchen_room_door_tiles.png-e08f6f26d015c41fca17c8568b177335.ctex"]
 
 [params]
 

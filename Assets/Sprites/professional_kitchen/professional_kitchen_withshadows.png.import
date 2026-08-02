@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dekrbskeuq4wd"
-path="res://.godot/imported/50sdiner_set_withshadow.png-e85b621fc3bdda09cb500d24fd330376.ctex"
+uid="uid://gn3mubhftv4v"
+path="res://.godot/imported/professional_kitchen_withshadows.png-c9cca91177fc88764e9dcc714b2f409d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/50's Diner/50sdiner_set_withshadow.png"
-dest_files=["res://.godot/imported/50sdiner_set_withshadow.png-e85b621fc3bdda09cb500d24fd330376.ctex"]
+source_file="res://Assets/Sprites/professional_kitchen/professional_kitchen_withshadows.png"
+dest_files=["res://.godot/imported/professional_kitchen_withshadows.png-c9cca91177fc88764e9dcc714b2f409d.ctex"]
 
 [params]
 
